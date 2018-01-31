@@ -7,6 +7,7 @@
   <title>Weather Getter</title>
   <script src="js/script.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href=".\css\styles.css">
 
   <?php
     include('weatherGetter.php');
@@ -37,11 +38,11 @@ foreach($innerValues as $value){
   $time = date('g a', strtotime($value['dt_txt']));
 
   if ($dateCheck < $dateNum){
-    print_r('<tr>'. '<th colspan="3">' . $dateInfo . '</th>' . '</tr>');
+    print_r('<tr>'. '<th colspan="3" class="groupheader">' . $dateInfo . '</th>' . '</tr>');
     $dateCheck = $dateNum;
   }
   elseif ($dateNum == 1 && !(is_null($preventDouble))) {
-    print_r('<tr>'. '<th colspan="3">' . $dateInfo . '</th>' . '</tr>');
+    print_r('<tr>'. '<th colspan="3" class="groupheader">' . $dateInfo . '</th>' . '</tr>');
     $preventDouble = null;
     $dateCheck = $dateNum;
   }
