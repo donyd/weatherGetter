@@ -13,12 +13,13 @@
 
   <?php
     include('weatherGetter.php');
-    //$weatherResults = curlGET('api.openweathermap.org/data/2.5/forecast?id=7288565&units=metric&mode=JSON&APPID=################################');
+    date_default_timezone_set("Europe/Dublin");
+    $weatherResults = curlGET('api.openweathermap.org/data/2.5/forecast?id=7288565&units=metric&mode=JSON&APPID=7401d8be512f8c43fe517884b777cded');
     //$weatherResults = curlGET('api.openweathermap.org/data/2.5/weather?id=7288565&APPID=##########################');
     //echo $weatherResults;
 
-    $results = file_get_contents('result.json');
-    $json = json_decode($results, true);
+    //$results = file_get_contents('result.json');
+    $json = json_decode($weatherResults, true);
 
     $innerValues = $json["list"];
 
@@ -28,6 +29,7 @@
 <body>
 <div class='container'>
   <h1>Dublin 5 Day Forecast</h1>
+  <h6>Current Time is: <?php echo ' ' . date('g:i a'); ?></h6>
 
 <?php
 
@@ -58,6 +60,12 @@ foreach($innerValues as $value){
 print_r('</table>');
 ?>
 
+<footer>
+<?php 
+    print_r('&copy; 2018-' . date('Y') . ' | Dony \'D\' Made | ');
+    print_r('<a href="https://github.com/donyd/weatherGetter">Git Source</a>')
+?> 
+</footer>
 </div>
 
 </body>
