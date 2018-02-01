@@ -1,5 +1,5 @@
 function checkJS(){
-  alert("JavaScript Online");
+  alert("JavaScript Online cuz Dony said so");
 }
 
 var getWeather = function (){
